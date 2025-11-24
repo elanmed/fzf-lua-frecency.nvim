@@ -4,3 +4,6 @@
 [submodule "deps/ts-vimdoc.nvim"]
 	path = deps/ts-vimdoc.nvim
 	url = https://github.com/ibhagwan/ts-vimdoc.nvim
+[submodule "deps/fzf-lua"]
+	path = deps/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua
