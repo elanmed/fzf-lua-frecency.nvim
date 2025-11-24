@@ -90,9 +90,9 @@ require('fzf-lua-frecency').setup({
    -- ...
    -- defaults:
     debug = false,
-    db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency")),
+    db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency"),
     -- Display files from the cwd only
-    stat_file = true,     
+    stat_file = true,
 })
 ```
 
@@ -106,7 +106,7 @@ require('fzf-lua-frecency').setup({
 require('fzf-lua-frecency').clear_db()
 require('fzf-lua-frecency').clear_db({
    -- defaults:
-   db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency"))
+   db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency")
 })
 ```
 
