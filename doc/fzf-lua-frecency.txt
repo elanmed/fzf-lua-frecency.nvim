@@ -1,4 +1,4 @@
-*fzf-lua-frecency.txt*                             Last change: 2025 August 10
+*fzf-lua-frecency.txt*                           Last change: 2025 November 24
 
 ==============================================================================
 Table of Contents                         *fzf-lua-frecency-table-of-contents*
@@ -127,9 +127,9 @@ called.
        -- ...
        -- defaults:
         debug = false,
-        db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency")),
+        db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency"),
         -- Display files from the cwd only
-        stat_file = true,     
+        stat_file = true,
     })
 <
 
@@ -144,7 +144,7 @@ called.
     require('fzf-lua-frecency').clear_db()
     require('fzf-lua-frecency').clear_db({
        -- defaults:
-       db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency"))
+       db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency")
     })
 <
 
