@@ -95,10 +95,6 @@ M.setup = function(opts)
   vim.api.nvim_create_autocmd({ "BufWinEnter", }, {
     group = vim.api.nvim_create_augroup("FzfLuaFrecency", { clear = true, }),
     callback = function(ev)
-      if timer_id then
-        vim.fn.timer_stop(timer_id)
-      end
-
       local current_win = vim.api.nvim_get_current_win()
       local is_normal_win = vim.api.nvim_win_get_config(current_win).relative == ""
       if not is_normal_win then return end
@@ -108,6 +104,10 @@ M.setup = function(opts)
 
       local bname = vim.api.nvim_buf_get_name(ev.buf)
       if bname == "" then return end
+
+      if timer_id then
+        vim.fn.timer_stop(timer_id)
+      end
 
       timer_id = vim.fn.timer_start(1000, function()
         algo.update_file_score(vim.fs.normalize(bname), {
