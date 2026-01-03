@@ -92,7 +92,7 @@ M.setup = function(opts)
     true)
 
   local timer_id = nil
-  vim.api.nvim_create_autocmd({ "BufWinEnter", }, {
+  vim.api.nvim_create_autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup("FzfLuaFrecency", { clear = true, }),
     callback = function(ev)
       if timer_id then
@@ -176,7 +176,7 @@ M.frecency = function(opts)
       return cat_cmd
     end
 
-    local all_files_cmd = require("fzf-lua.providers.files").get_files_cmd(opts)
+    local all_files_cmd = require "fzf-lua.providers.files".get_files_cmd(opts)
     if not all_files_cmd then return cat_cmd end
 
     return ("%s %s %s"):format(cat_cmd, h.IS_WINDOWS and "&&" or ";", all_files_cmd)
