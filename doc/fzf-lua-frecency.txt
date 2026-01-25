@@ -49,7 +49,7 @@ A SMARTER FILE PICKER: ALL FILES IN THE `CWD` WITH FRECENCY-SCORED FILES LISTED 
 
 >lua
     require('fzf-lua-frecency').frecency({
-        cwd_only = true,     
+        cwd_only = true,
     })
 <
 >vimscript
@@ -82,12 +82,12 @@ API                                                     *fzf-lua-frecency-api*
         debug = false,
         db_dir = vim.fs.joinpath(vim.fn.stdpath "data", "fzf-lua-frecency")),
         -- Display files from the cwd only
-        cwd_only = false,     
-        -- Populate non-scored files in cwd? 
+        cwd_only = false,
+        -- Populate non-scored files in cwd?
         -- defaults to `true` if `cwd_only=true`, else `false`
-        all_files = nil,      
+        all_files = nil,
         -- Test for a scored file's existence in the file system before displaying it in the picker
-        stat_file = true,     
+        stat_file = true,
         -- Prefix the fzf entry with its frecency score
         display_score = true,
     })
@@ -100,7 +100,8 @@ API                                                     *fzf-lua-frecency-api*
 
 1. Registers `fzf-lua-frecency` as an `fzf-lua` extension. This extends the
   `FzfLua` command to enable: `:FzfLua frecency ...`
-2. Creates an autocommand to update a file's score on `BufWinEnter`
+2. Creates an autocommand to update a file's score on `BufEnter`
+  <https://github.com/elanmed/fzf-lua-frecency.nvim/pull/27>
 3. Adds an `fzf-lua` action (`ctrl-x`) to remove a file's frecency score
 `setup` can be called explicitly if you wish to pass along any frecency
 options to the `ctrl-x` action or the autocommand. Otherwise, `setup` will be
@@ -158,9 +159,9 @@ By default, the following options are passed along to `FzfLua.fzf_exec`:
     local opts = {
       -- the default actions for FzfLua files, with an additional
       -- ["ctrl-x"] action to remove a file's frecency score
-      actions      = actions,    
+      actions      = actions,
       -- FzfLua's default previewer
-      previewer    = previewer,  
+      previewer    = previewer,
       file_icons   = true,
       color_icons  = true,
       git_icons    = false,
